@@ -7824,6 +7824,7 @@ function write_ws_xml_data(ws, opts, idx, wb) {
 		if(r.length > 0) {
 			// 18.3.1.73 row
 			var params = {r:rr};
+			console.log(ws['!rows'])
 			if(typeof ws['!rows'] !== 'undefined' && ws['!rows'].length > R) {
 				var row = ws['!rows'][R];
 				if (row.hidden) params.hidden = 1;
@@ -7832,6 +7833,7 @@ function write_ws_xml_data(ws, opts, idx, wb) {
 				else if (row.hpt) height = row.hpt;
 				if (height > -1) { params.ht = height; params.customHeight = 1; }
 			};
+			console.log(r)
 			o[o.length] = (writextag('row', r.join(""), params));
 		}
 	}
